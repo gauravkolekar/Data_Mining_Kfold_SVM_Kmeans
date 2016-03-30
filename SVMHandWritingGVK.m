@@ -4,6 +4,8 @@ Algorithm Name: SVM
 Team Members:
 Gaurav Vivek Kolekar
 Brijesh Danhkara
+
+Citation: Chih-Chung Chang and Chih-Jen Lin, LIBSVM : a library for support vector machines. ACM Transactions on Intelligent Systems and Technology, 2:27:1--27:27, 2011.
 %}
 clear all
 clc
