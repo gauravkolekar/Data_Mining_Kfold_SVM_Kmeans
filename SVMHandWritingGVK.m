@@ -238,56 +238,56 @@ train_labels = train_labels(:)';
 %iteration1
 model_linear1 = svmtrain(train_labels',X1','-s 1 -t 0');
 [predict_label_linear1,accuracy_linear1,dec_value_linear1] = svmpredict(test_labels',Y1',model_linear1);
-disp(predict_label_linear1')
-disp(accuracy_linear1')
+%disp(predict_label_linear1')
+%disp(accuracy_linear1')
 %iteration2
 model_linear2 = svmtrain(train_labels',X2','-s 1 -t 0');
 [predict_label_linear2,accuracy_linear2,dec_value_linear2] = svmpredict(test_labels',Y2',model_linear2);
-disp(predict_label_linear2')
-disp(accuracy_linear2')
+%disp(predict_label_linear2')
+%disp(accuracy_linear2')
 %iteration3
 model_linear3 = svmtrain(train_labels',X3','-s 1 -t 0');
 [predict_label_linear3,accuracy_linear3,dec_value_linear3] = svmpredict(test_labels',Y3',model_linear3);
-disp(predict_label_linear3')
-disp(accuracy_linear3')
+%disp(predict_label_linear3')
+%disp(accuracy_linear3')
 %iteration4
 model_linear4 = svmtrain(train_labels',X4','-s 1 -t 0');
 [predict_label_linear4,accuracy_linear4,dec_value_linear4] = svmpredict(test_labels',Y4',model_linear4);
-disp(predict_label_linear4')
-disp(accuracy_linear4')
+%disp(predict_label_linear4')
+%disp(accuracy_linear4')
 %iteration5
 model_linear5 = svmtrain(train_labels',X5','-s 1 -t 0');
 [predict_label_linear5,accuracy_linear5,dec_value_linear5] = svmpredict(test_labels',Y5',model_linear5);
-disp(predict_label_linear5')
-disp(accuracy_linear5')
+%disp(predict_label_linear5')
+%disp(accuracy_linear5')
 %end of SVM(kernel=linear)
 
 %start of SVM(kernel=Gaussian)
 %iteration1
 model_gaussian1 = svmtrain(train_labels',X1','-s 1 -t 2');
 [predict_label_gaussian1,accuracy_gaussian1,dec_value_gaussian1] = svmpredict(test_labels',Y1',model_gaussian1);
-disp(predict_label_gaussian1')
-disp(accuracy_gaussian1')
+%disp(predict_label_gaussian1')
+%disp(accuracy_gaussian1')
 %iteration2
 model_gaussian2 = svmtrain(train_labels',X2','-s 1 -t 2');
 [predict_label_gaussian2,accuracy_gaussian2,dec_value_gaussian2] = svmpredict(test_labels',Y2',model_gaussian2);
-disp(predict_label_gaussian2')
-disp(accuracy_gaussian2')
+%disp(predict_label_gaussian2')
+%disp(accuracy_gaussian2')
 %iteration3
 model_gaussian3 = svmtrain(train_labels',X3','-s 1 -t 2');
 [predict_label_gaussian3,accuracy_gaussian3,dec_value_gaussian3] = svmpredict(test_labels',Y3',model_gaussian3);
-disp(predict_label_gaussian3')
-disp(accuracy_gaussian3')
+%disp(predict_label_gaussian3')
+%disp(accuracy_gaussian3')
 %iteration4
 model_gaussian4 = svmtrain(train_labels',X4','-s 1 -t 2');
 [predict_label_gaussian4,accuracy_gaussian4,dec_value_gaussian4] = svmpredict(test_labels',Y4',model_gaussian4);
-disp(predict_label_gaussian4')
-disp(accuracy_gaussian4')
+%disp(predict_label_gaussian4')
+%disp(accuracy_gaussian4')
 %iteration5
 model_gaussian5 = svmtrain(train_labels',X5','-s 1 -t 2');
 [predict_label_gaussian5,accuracy_gaussian5,dec_value_gaussian5] = svmpredict(test_labels',Y5',model_gaussian5);
-disp(predict_label_gaussian5')
-disp(accuracy_gaussian5')
+%disp(predict_label_gaussian5')
+%disp(accuracy_gaussian5')
 %end of SVM(kernel=Gaussian)
 
 %final accuracy linear
