@@ -8,9 +8,9 @@ Gaurav Vivek Kolekar
 Brijesh Danhkara
 %}
 
-data_load_complete = dlmread('ATNTFaceImage400.txt',',');
+data_load_complete = dlmread('HandWrittenLetters.txt',',');
 data_load = data_load_complete(2:end,1:end);
-number_of_classes = 40;
+number_of_classes = 26;
 %reading data
 
 [number_of_rows,number_of_columns] = size(data_load_complete);
