@@ -8,9 +8,9 @@ Gaurav Vivek Kolekar
 Brijesh Danhkara
 %}
 
-data_load_complete = dlmread('HandWrittenLetters.txt',',');
+data_load_complete = dlmread('ATNTFaceImage400.txt',',');
 data_load = data_load_complete(2:end,1:end);
-number_of_classes = 26;
+number_of_classes = 40;
 %reading data
 
 [number_of_rows,number_of_columns] = size(data_load_complete);
@@ -28,12 +28,11 @@ residual = mod(highest_frequency_of_data,K);
 size_of_test = floor(highest_frequency_of_data/K);
 %calculating what the size of test
 
-average_linear_accuracy=0;
-average_gaussian_accuracy=0;
 new_size_of_test = 0;
 train_data = [];
 test_data = [];
 temp = [];
+Ytrain=[];
 AA = 1:highest_frequency_of_data:number_of_columns;
 sum_to_subtract=0;
 i=1; %i indicates fold value
@@ -78,49 +77,17 @@ while i<(K+1)
     if residual>0
         residual = residual-1;
     end
-    
-    %creating train_labels
+    %creation of Ytrain
     [number_of_train_data_rows,number_of_train_data_columns] = size(train_data);
-    w = number_of_train_data_columns/number_of_classes;
-    n = number_of_classes;
-    train_labels= repmat(1:n,[w 1]);
-    train_labels = train_labels(:)';
-    %end train_labels
-    
-    
-    %creating test_labels
-    [number_of_test_data_rows,number_of_test_data_columns] = size(test_data);
-    w = number_of_test_data_columns/number_of_classes;
-    n = number_of_classes;
-    test_labels= repmat(1:n,[w 1]);
-    test_labels = test_labels(:)';
-    %end test_labels
+    identity_matrix_for_Ytrain = eye(number_of_classes);
+    number_of_ones = ones(1,number_of_train_data_columns/number_of_classes);
+    Ytrain = kron(identity_matrix_for_Ytrain,number_of_ones);
+    %end of Ytrain
     
     %SVM
-    %starting SVM(kernel=linear)
-    model_linear = svmtrain(train_labels',train_data','-s 1 -t 0');
-    [predict_label_linear,accuracy_linear,dec_value_linear] = svmpredict(test_labels',test_data',model_linear);
-    average_linear_accuracy = average_linear_accuracy+accuracy_linear(1,1);
-    %end SVM(kernel=linear)
-    %starting SVM(kernel=Gaussian)
-    model_gaussian = svmtrain(train_labels',train_data','-s 1 -t 2');
-    [predict_label_gaussian,accuracy_gaussian,dec_value_gaussian] = svmpredict(test_labels',test_data',model_gaussian);
-    average_gaussian_accuracy=average_gaussian_accuracy+accuracy_gaussian(1,1);
-    %end SVM(kernel=Gaussian)
-    %end SVM
+    %end of SVM
     i=i+1;
     test_data=[];
     train_data=[];
 end
 %creating folds using this while loop
-
-final_linear_accuracy = average_linear_accuracy/K;
-final_gaussian_accuracy = average_gaussian_accuracy/K;
-%calculating final average accuracies
-
-disp('Final linear accuracy');
-disp(final_linear_accuracy);
-
-disp('Final Gaussian accuracy');
-disp(final_gaussian_accuracy);
-%printing final accuracies
