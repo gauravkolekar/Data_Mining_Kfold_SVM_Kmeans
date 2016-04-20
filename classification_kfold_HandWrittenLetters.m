@@ -83,10 +83,19 @@ while i<(K+1)
     Ytrain = kron(identity_matrix_for_Ytrain,number_of_ones);
     %end of Ytrain
     
+    %creating test_labels
+    [number_of_test_data_rows,number_of_test_data_columns] = size(test_data);
+    w = number_of_test_data_columns/number_of_classes;
+    n = number_of_classes;
+    test_labels= repmat(1:n,[w 1]);
+    test_labels = test_labels(:)';
+    %end test_labels
+    
     %add code for all classification algorithm
     %end code for all classification algorithm
     i=i+1;
     test_data=[];
     train_data=[];
+    Ytrain=[];
 end
 %creating folds using this while loop
